@@ -1,8 +1,14 @@
 {
   "name": "sylver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight math library for JavaScript",
   "main": "./src/lib.js",
+  "files": [
+    "src/",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
   "directories": {
     "test": "test"
   },
@@ -15,7 +21,8 @@
   },
   "keywords": [
     "math",
-    "parser"
+    "parser",
+    "lightweight"
   ],
   "author": "juliandavidmr <juliandavidmr@github.io>",
   "license": "MIT",

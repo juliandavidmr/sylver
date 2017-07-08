@@ -1,5 +1,7 @@
 # Sylver
 
+[![npm version](https://img.shields.io/npm/v/sylver.svg)](https://www.npmjs.com/package/sylver)
+
 ❄️A lightweight math library for JavaScript. It features a flexible expression parser comes with a large set of built-in functions and constants. Powerful and easy to use.
 
 > In active development, any pull request will be welcome :)
@@ -20,7 +22,6 @@ Is easily extensible.
 ## Usage
 
 ```bash
-# Not available yet ;)
 npm install --save sylver # or yarn
 ```
 
@@ -30,7 +31,7 @@ var sylver = require('sylver');
 
 // basic
 sylver("(3*2)+6")           // 12
-sylver("~16")               // -6
+sylver("~16")               // -16
 sylver("7!")                // 5040
 
 // compare (0 = false; 1 = true)
@@ -44,7 +45,7 @@ sylver("if(3+8<=23)12:3")   // 12
 
 // intervals
 sylver("2 to 8")            // [2, 3, 4, 5, 6, 7, 8]
-sylver("(4*PI) to 100/2")   // [11.5, 12.5]
+sylver("(4*PI) to (23/2)")   // [11.5, 12.5]
 
 // algebra
 sylver("cos(4)")            // -0.6536436208636119
