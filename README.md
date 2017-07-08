@@ -45,6 +45,15 @@ sylver("if(3+8<=23)12:3")   // 12
 // intervals
 sylver("2 to 8")            // [2, 3, 4, 5, 6, 7, 8]
 sylver("(4*PI) to 100/2")   // [11.5, 12.5]
+
+// algebra
+sylver("cos(4)")            // -0.6536436208636119
+sylver("atan(7)")           // 1.4288992721907328
+sylver("atanh(-0.4)")       // -0.4236489301936018
+// See: test/algebra1.js
+
+// Other
+sylver("abs(ln(2)*(4^3))*(if(3<>6) 2:5)")  // 88.722839111673
 ```
 
 ## Browser support

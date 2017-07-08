@@ -2,7 +2,6 @@ var test = require('ava');
 var sylver = require('../')
 
 test('2 to 8 is equal to [2, 3, 4, 5, 6, 7, 8]', t => {
-	console.log(typeof sylver("2 to 8"))
 	t.deepEqual(sylver("2 to 8"), [2, 3, 4, 5, 6, 7, 8])
 })
 
