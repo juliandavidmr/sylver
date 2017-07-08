@@ -1,0 +1,54 @@
+{
+  "name": "sylver",
+  "version": "1.0.0",
+  "description": "A lightweight math library for JavaScript",
+  "main": "./src/lib.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliandavidmr/sylver.git"
+  },
+  "keywords": [
+    "math",
+    "parser"
+  ],
+  "author": "juliandavidmr <juliandavidmr@github.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juliandavidmr/sylver/issues"
+  },
+  "homepage": "https://github.com/juliandavidmr/sylver#readme",
+  "devDependencies": {
+    "ava": "^0.20.0",
+    "jison": "^0.4.17"
+  },
+  "ava": {
+    "files": [
+      "test/*.js",
+      "!**/lib.js"
+    ],
+    "source": [
+      "**/*.{js,jsx}",
+      "!dist/**/*",
+      "!src/**/*"
+    ],
+    "match": [
+      "*",
+      "!foo"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": true,
+    "powerAssert": false,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  }
+}
