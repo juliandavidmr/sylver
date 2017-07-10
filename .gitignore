@@ -1,6 +1,3 @@
-# js
-src/parser.js
-
 # Logs
 logs
 *.log
@@ -61,3 +58,4 @@ typings/
 .env
 
 /.idea/
+/src/parser.js

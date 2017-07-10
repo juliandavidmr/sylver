@@ -40,7 +40,8 @@
   "ava": {
     "files": [
       "test/*.js",
-      "!**/lib.js"
+      "!**/lib.js",
+      "!test/test.js"
     ],
     "source": [
       "**/*.{js,jsx}",
