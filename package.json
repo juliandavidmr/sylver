@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "description": "A lightweight math library for JavaScript",
   "main": "./src/lib.js",
+  "bin": {
+    "sylver": "./cli/main.js"
+  },
   "files": [
     "src/",
     "package.json",

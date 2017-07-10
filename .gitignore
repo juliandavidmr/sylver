@@ -1,3 +1,6 @@
+# js
+src/parser.js
+
 # Logs
 logs
 *.log
@@ -57,3 +60,4 @@ typings/
 # dotenv environment variables file
 .env
 
+/.idea/

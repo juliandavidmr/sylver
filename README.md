@@ -22,7 +22,9 @@ Is easily extensible.
 ## Usage
 
 ```bash
-npm install --save sylver # or yarn
+npm install --save sylver 
+# or 
+yarn add sylver
 ```
 
 ```js
@@ -57,8 +59,21 @@ sylver("atanh(-0.4)")       // -0.4236489301936018
 sylver("abs(ln(2)*(4^3))*(if(3<>6) 2:5)")  // 88.722839111673
 ```
 
-## Browser support
+### Usage globally _(Available in the next versions)_
 
+```bash
+npm i -g sylver
+
+# or
+yarn global add sylver
+```
+Enter from the command terminal:
+```bash
+sylver --help
+```
+
+## Browser support
+__// TODO__
 Sylver works on any ES5 compatible JavaScript engine: node.js 0.10, and Internet Explorer 9 and newer, and all other browsers (Chrome, Firefox, Safari). If support for old browsers like Internet Explorer 8 is required, the es5-shim library has to be loaded.
 
 ## Build
@@ -91,6 +106,8 @@ npm test
 
 The tests are run with [ava](https://github.com/avajs/ava)
 
+
+### [See changelog](./CHANGELOG)
 
 ## License
 
