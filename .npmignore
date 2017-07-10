@@ -13,3 +13,5 @@ npm-debug.log
 /.idea/
 /src/dev.js
 /src/grammar.js
+/test/
+/src/operations/

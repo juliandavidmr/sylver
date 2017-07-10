@@ -50,7 +50,6 @@ sylver("2 * (6 to 10)")     // [ 12, 14, 16, 18, 20 ]
 
 // list
 sylver("[2, 3, 5, 1] * [6, 3, 5, 4, 102]")     // [ 12, 9, 25, 4, 102 ]
-sylver("")
 
 // algebra
 sylver("cos(4)")            // -0.6536436208636119
@@ -136,8 +135,7 @@ __// TODO: Version for browsers in development__
 Sylver works on any ES5 compatible JavaScript engine: node.js 0.10, 
 and Internet Explorer 9 and newer, and all other browsers (Chrome, Firefox, Safari). 
 If support for old browsers like Internet Explorer 8 is required, 
-the es5-shim library has to be loaded. 
-Use function parser from [parser.js](https://github.com/juliandavidmr/sylver/blob/master/src/parser.js) file.
+the es5-shim library has to be loaded.
 
 
 ## Build
