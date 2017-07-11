@@ -1,13 +1,9 @@
 var sylver = require('../');
 
-console.log(sylver("2 * (6 to 10)"));
-console.log(sylver("(1 to 4) * [2, 4, 6, 7]"));
-console.log(sylver("(1 to 4) * 3"));
-console.log(sylver("E"));
+console.log(sylver("var12 := ((1 to 5) * 34)"));
+console.log(sylver(":var12"));
 
-console.log(sylver(`
-if((5*2)>(6*2))
-	80
-:
-	35
-`));
+console.log(sylver("hello := 123"));
+console.log(sylver(":hello"));
+
+console.log(sylver("(bye := 5) * 2"));

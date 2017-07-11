@@ -1,18 +1,19 @@
 var op_basic = require('./operations/basic');
 var op_interval = require('./operations/interval');
 
-module.exports = {
+const grammar = {
    "comment": "JSON Math Parser",
 
    "lex": {
 		 	"macros": {
-				"digit": "[0-9]",
-				"esc": "\\\\",
-				"int": "-?(?:[0-9]|[1-9][0-9]+)",
-				"exp": "(?:[eE][-+]?[0-9]+)",
-				"frac": "(?:\\.[0-9]+)",
-				"number": "[0-9]+(?:\\.[0-9]+)?",
-				"array_number": "\\[\\s*(?:(?:(?:[\\d.]+?)|(?:\\[.*?\\]))(?:\\s*,\\s*))*?((?:[\\d.]+)|(?:\\[.*?\\]))\\s*\\]"
+				"digit":		"[0-9]",
+				"esc": 			"\\\\",
+				"int":			"-?(?:[0-9]|[1-9][0-9]+)",
+				"exp":			"(?:[eE][-+]?[0-9]+)",
+				"frac":			"(?:\\.[0-9]+)",
+				"number":		"[0-9]+(?:\\.[0-9]+)?",
+				"array_number": "\\[\\s*(?:(?:(?:[\\d.]+?)|(?:\\[.*?\\]))(?:\\s*,\\s*))*?((?:[\\d.]+)|(?:\\[.*?\\]))\\s*\\]",
+				"alfanum":	"([A-Za-z0-9])+"
       },
       "rules": [
          ["\\s+",                    "/* skip whitespace */"],
@@ -58,6 +59,8 @@ module.exports = {
          ["==\\b",                   "return '=='"],
          ["eq\\b",                   "return '=='"],
 				 ["&&\\b",                   "return '&&'"],
+				 /* variables */
+				 [":=", 	 									 "return ':='"],
 				 /* Interval */
          ["to\\b",                   "return 'to'"],
 				 /* Arrays */
@@ -66,7 +69,8 @@ module.exports = {
          ["if\\b",                   "return 'if'"],
          [":",                       "return ':'"],
 
-         ["$",                       "return 'EOF'"]
+         ["$",                       "return 'EOF'"],
+				 ["{alfanum}",  						 "return 'ALFANUM'"]
       ]
    },
 
@@ -91,6 +95,7 @@ module.exports = {
       ["left", "=="],
       ["left", "<>"],
 		  ["left", "&&"],
+		  ["left", ":="],
       ["left", ">", "<", "<=", ">="],
 		  ["left", "log1p"],
 		  ["left", "log10"],
@@ -131,9 +136,9 @@ module.exports = {
 				 /* Conditions */
          ["if ( e ) e : e", "$$ = $3?$5:$7"],
 				 /* Trigonometry */
-				 ["log1p e",    "$$ = Math.log1p($2)"],
-				 ["log10 e",    "$$ = Math.log10($2)"],
-				 ["log2 e",    "$$ = Math.log2($2)"],
+				 ["log1p e",  "$$ = Math.log1p($2)"],
+				 ["log10 e",  "$$ = Math.log10($2)"],
+				 ["log2 e",   "$$ = Math.log2($2)"],
 				 ["log e",    "$$ = Math.log($2)"],
 				 ["sqrt e",   "$$ = Math.sqrt($2)"],
          ["cos e",    "$$ = Math.cos($2)"],
@@ -147,12 +152,19 @@ module.exports = {
          ["asinh e",  "$$ = Math.asinh($2)"],
          ["atanh e",  "$$ = Math.atanh($2)"],
 				 /* Arrays */
-				 ["ARRAY_NUMBER", "$$ = $1"],
+				 ["ARRAY_NUMBER", "$$ = $ARRAY_NUMBER"],
 				 /* Constants */
          ["E",        "$$ = Math.E"],
          ["PI",       "$$ = Math.PI"],
+				 /* Allow variables alfa-numeric - Variable */
+				 [": ALFANUM",  "$$ = Parser.getVar($ALFANUM)"],
+				 ["ALFANUM := e", `
+				 		$$ = Parser.setVar($ALFANUM, $3);
+				 `],
 				 /* stdout */
 				 ["print e",  "$$ = (function(expr) {console.log(expr); return expr})($2)"],
       ]
    }
 };
+
+module.exports = grammar;

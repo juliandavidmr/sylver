@@ -12,9 +12,10 @@
 - Supports numbers, complex numbers, fractions, conditions.
 - Compatible with JavaScript.
 - Contains a flexible expression parser.
+- Dynamic creation of variables, multivalue. _(Experimental)_
 - Comes with a large set of built-in functions and constants.
 - Has no dependencies. Runs on any JavaScript engine. 
-- Can be used as a command line application as well.
+- Can be used as a command line application as well. _(Experimental)_
 - Open source.
 
 ## Usage
@@ -129,6 +130,30 @@ Currently there are two constants available: `PI`, `E`
 sylver("PI")        // 3.141592653589793
 sylver("E")         // 2.718281828459045
 ```
+
+### Variables _(experimental: Available in the next versions npm)_
+
+The creation of variables is dynamic, it is not necessary to 
+specify the data type: Imagine that you are creating a variable 
+in javascript but without specifying var.
+> A variable can contain a number or a list of numbers.
+
+```js
+// Create a variable
+sylver("var12 := ((1 to 5) * 34)")
+
+// Get value of a variable
+sylver(":var12")                  // [ 34, 68, 102, 136, 170 ]
+```
+
+When you create a variable, the data that has been assigned 
+is returned:
+````js
+sylver("hello := 123")        // 123
+
+// e.g.
+sylver("(bye := 5) * 2")      // 10
+````
 
 ## Browser support
 __// TODO: Version for browsers in development__
